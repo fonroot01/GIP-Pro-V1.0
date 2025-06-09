@@ -28,7 +28,6 @@
 ### Herramientas de Red
 - **Aplicar Configuración**: Aplicación inmediata de cambios
 - **DHCP**: Obtención automática de configuración de red
-- **Probar Conexión**: Verificación del estado de conectividad
 - **Guardar Perfil**: Persistencia de configuraciones
 - **Probar Proxy**: Validación de configuración de proxy
 
@@ -42,17 +41,16 @@
 ## 🛠️ Instalación
 
 ### Windows
-1. Descarga la última versión desde [Releases](../../releases)
-2. Ejecuta el instalador como administrador
-3. Sigue las instrucciones del asistente de instalación
-4. Inicia la aplicación desde el menú de inicio
+1. Ejecuta el .exe de GIP Pro que te pedira ejecutarse automáticamente como administrador
+2. Sigue las instrucciones del asistente de instalación
+3. Inicia la aplicación desde el menú de inicio
 
 ### Linux
 
 #### Ubuntu/Debian
 ```bash
 # Descarga el paquete .deb
-wget https://github.com/tuusuario/gip-pro/releases/latest/download/gip-pro.deb
+wget https://github.com/fonroot/gip-pro/releases/latest/download/gip-pro.deb
 
 # Instala el paquete
 sudo dpkg -i gip-pro.deb
@@ -75,7 +73,7 @@ makepkg -si
 #### CentOS/RHEL/Fedora
 ```bash
 # Descarga el paquete .rpm
-wget https://github.com/tuusuario/gip-pro/releases/latest/download/gip-pro.rpm
+wget https://github.com/fonroot01/gip-pro/releases/latest/download/gip-pro.rpm
 
 # Instala el paquete
 sudo rpm -i gip-pro.rpm
@@ -86,7 +84,7 @@ sudo dnf install gip-pro.rpm
 
 #### Instalación desde código fuente
 ```bash
-git clone https://github.com/tuusuario/gip-pro.git
+git clone [https://github.com/fonroot01/GIP-Pro-V1.0.git]
 cd gip-pro
 chmod +x install.sh
 sudo ./install.sh
@@ -197,18 +195,19 @@ Este proyecto está bajo la Licencia Apache 2.0. Ver el archivo [LICENSE](LICENS
 
 ## 👨‍💻 Autor
 
-**Tu Nombre**
-- GitHub: [@tuusuario](https://github.com/tuusuario)
-- Email: tu.email@ejemplo.com
+**Alfonso Mosquera**
+- Si esta herramienta te ha sido útil y quieres apoyar su desarrollo, puedes hacer una donación vía PayPal: [Donar con PayPal](https://www.paypal.com/paypalme/alfomosque22/5)
+- Linkedin: https://www.linkedin.com/in/alfonso-%C3%A1ngel-mosquera-a-4a919b341/
+- Email: alfomosque22@gmail.com
+
+Tu apoyo me motiva a seguir desarrollando herramientas útiles y gratuitas. ¡Gracias! 🙌
 
 ## 🙏 Agradecimientos
 
 - Inspirado en herramientas de administración de red
 - Gracias a la comunidad de desarrolladores por el feedback
 - Iconos por [Lucide Icons](https://lucide.dev/)
-
 ---
-
 <div align="center">
-  <p>⭐ Si este proyecto te fue útil, ¡considera darle una estrella!</p>
+  <p>⭐ Si este proyecto te fue útil, no olvides regalarme un estrella, saludos desde Colombia panita. 🇨🇴 </p>
 </div>
