@@ -44,10 +44,10 @@
 ## 🛠️ Instalación
 
 ### Windows
-1. Descarga el archivo `.exe` desde [Releases](https://github.com/fonroot01/GIP-Pro-V1.0/releases)
-2. Ejecuta el instalador (se ejecutará automáticamente como administrador)
+1. Descarga el Instalador `.exe` desde [OneDrive](https://drive.google.com/file/d/1CS0Gsu8lHEcJ6JwHQsaSe_6pCPmVGJXF/view?usp=drive_link)
+2. Ejecuta el instalador
 3. Sigue las instrucciones del asistente de instalación
-4. Inicia la aplicación desde el menú de inicio
+4. Despues de instalado, puedes empezar a usarlo. (El programa se ejecutará automaticamente como admin)
 
 ### Linux
 
@@ -63,7 +63,7 @@ sudo dpkg -i gip-pro.deb
 sudo apt-get install -f
 ```
 
-#### Instalación desde Cualquier distribución
+#### Instalación desde cualquier distro
 ```bash
 git clone https://github.com/fonroot01/GIP-Pro-V1.0.git
 cd GIP-Pro-V1.0
@@ -82,12 +82,6 @@ brew tap fonroot01/gip-pro
 brew install gip-pro
 ```
 
-#### Instalación Manual
-1. Descarga el archivo `.dmg` desde [Releases](https://github.com/fonroot01/GIP-Pro-V1.0/releases)
-2. Abre el archivo `.dmg`
-3. Arrastra GIP Pro a la carpeta Aplicaciones
-4. Ejecuta desde Launchpad o Finder
-
 #### Instalación desde código fuente
 ```bash
 git clone https://github.com/fonroot01/GIP-Pro-V1.0.git
@@ -97,9 +91,6 @@ sudo ./install-macos.sh
 ```
 ### Interfaz Gráfica 
 ![Interfaz de GIP Pro](https://github.com/user-attachments/assets/788f39b0-348a-499e-b656-b7a434fde962)
-
-
-
 
 ## 💻 Uso
 
