@@ -1,4 +1,4 @@
-# GIP Pro v1.0
+# GIP Pro versión 1.0
 
 ![GIP Pro](https://img.shields.io/badge/version-1.0-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)
