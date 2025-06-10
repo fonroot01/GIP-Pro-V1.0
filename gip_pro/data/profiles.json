@@ -1,0 +1,52 @@
+{
+  "profiles": [
+    {
+      "interface": "Wi-Fi",
+      "ip": "192.168.1.22",
+      "mask": "255.255.255.0",
+      "gateway": "",
+      "dns1": "",
+      "dns2": ""
+    },
+    {
+      "interface": "Ethernet0",
+      "ip": "",
+      "mask": "255.255.255.0",
+      "gateway": "",
+      "dns1": "",
+      "dns2": ""
+    },
+    {
+      "interface": "Ethernet0",
+      "ip": "",
+      "mask": "255.255.255.0",
+      "gateway": "",
+      "dns1": "",
+      "dns2": ""
+    },
+    {
+      "interface": "Wi-Fi",
+      "ip": "",
+      "mask": "255.255.255.0",
+      "gateway": "",
+      "dns1": "",
+      "dns2": ""
+    },
+    {
+      "interface": "Wi-Fi",
+      "ip": "192.168.1.20",
+      "mask": "255.255.255.0",
+      "gateway": "",
+      "dns1": "",
+      "dns2": ""
+    },
+    {
+      "interface": "Wi-Fi",
+      "ip": "192.168.1.99",
+      "mask": "255.255.255.0",
+      "gateway": "",
+      "dns1": "",
+      "dns2": ""
+    }
+  ]
+}

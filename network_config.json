@@ -1,0 +1,20 @@
+{
+    "network": {
+        "interface": "Wi-Fi",
+        "ip": "192.168.1.100",
+        "mask": "255.255.255.0",
+        "gateway": "192.168.1.1"
+    },
+    "dns": {
+        "primary": "8.8.8.8",
+        "secondary": "8.8.4.4"
+    },
+    "proxy": {
+        "enabled": false,
+        "server": "",
+        "port": ""
+    },
+    "theme": {
+        "dark_mode": false
+    }
+}

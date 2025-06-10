@@ -1,0 +1,39 @@
+# filepath: c:\PROYECTOS_Python\GIP Pro\gip_pro\main.py
+from PyQt6.QtWidgets import QApplication
+from .ui.main_window import MainWindow
+from . import network_tools
+import sys
+import os
+
+def main():
+    try:
+        # Inicializar las herramientas de red y el logger
+        from .logger import Logger
+        logger = Logger()
+        net_tools = network_tools.NetworkTools(logger)
+        
+        # Crear la aplicación Qt
+        print("Iniciando GIP Pro...")
+        app = QApplication(sys.argv)
+        
+        # Configurar propiedades de la aplicación
+        app.setApplicationName("GIP Pro")
+        app.setApplicationVersion("1.0")
+        app.setOrganizationName("GIP Pro Team")
+        
+        # Crear y mostrar la ventana principal
+        print("Creando ventana principal...")
+        window = MainWindow(network_tools=net_tools, logger=logger)
+        
+        print("Mostrando ventana...")
+        window.show()
+        
+        # Ejecutar el loop principal
+        print("Iniciando loop principal de la aplicación...")
+        return app.exec()
+    except Exception as e:
+        print(f"Error al iniciar la aplicación: {e}")
+        return 1
+
+if __name__ == "__main__":
+    sys.exit(main())

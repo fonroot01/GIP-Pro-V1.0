@@ -1,0 +1,175 @@
+# Interfaz de configuración IP
+import sys
+from PyQt6.QtWidgets import (
+    QWidget, QVBoxLayout, QHBoxLayout, QGridLayout,
+    QLabel, QLineEdit, QPushButton, QComboBox,
+    QCheckBox, QGroupBox, QFrame, QSpacerItem,
+    QSizePolicy, QScrollArea
+)
+from PyQt6.QtCore import Qt, QTimer, pyqtSignal
+
+class TabIP(QWidget):
+    """Tab para la gestión de configuraciones IP"""
+    
+    def __init__(self, network_tools, logger, profile_manager=None):
+        super().__init__()
+        self.network_tools = network_tools
+        self.logger = logger
+        self.profile_manager = profile_manager
+        self.init_ui()
+        self.init_timers()
+    
+    def init_ui(self):
+        """Inicializar la interfaz de usuario"""
+        layout = QVBoxLayout()
+        self.setLayout(layout)
+        
+        # Widget central con scroll
+        scroll = QScrollArea()
+        scroll.setWidgetResizable(True)
+        layout.addWidget(scroll)
+        
+        # Contenedor principal
+        container = QWidget()
+        scroll.setWidget(container)
+        main_layout = QVBoxLayout(container)
+        
+        # Sección de interfaces
+        interfaces_group = QGroupBox("Interfaces de red")
+        interfaces_layout = QVBoxLayout()
+        self.interfaces_combo = QComboBox()
+        self.refresh_interfaces()
+        interfaces_layout.addWidget(self.interfaces_combo)
+        interfaces_group.setLayout(interfaces_layout)
+        main_layout.addWidget(interfaces_group)
+        
+        # Sección de configuración IP
+        ip_group = QGroupBox("Configuración IP")
+        ip_layout = QGridLayout()
+        
+        # IP
+        ip_layout.addWidget(QLabel("Dirección IP:"), 0, 0)
+        self.ip_input = QLineEdit()
+        self.ip_input.setPlaceholderText("192.168.1.100")
+        ip_layout.addWidget(self.ip_input, 0, 1)
+        
+        # Máscara
+        ip_layout.addWidget(QLabel("Máscara:"), 1, 0)
+        self.mask_input = QLineEdit()
+        self.mask_input.setPlaceholderText("255.255.255.0")
+        ip_layout.addWidget(self.mask_input, 1, 1)
+        
+        # Gateway
+        ip_layout.addWidget(QLabel("Puerta de enlace:"), 2, 0)
+        self.gateway_input = QLineEdit()
+        self.gateway_input.setPlaceholderText("192.168.1.1")
+        ip_layout.addWidget(self.gateway_input, 2, 1)
+        
+        ip_group.setLayout(ip_layout)
+        main_layout.addWidget(ip_group)
+        
+        # Botones de acción
+        actions_layout = QHBoxLayout()
+        
+        self.apply_btn = QPushButton("Aplicar configuración")
+        self.apply_btn.clicked.connect(self.apply_ip_config)
+        actions_layout.addWidget(self.apply_btn)
+        
+        self.dhcp_btn = QPushButton("Activar DHCP")
+        self.dhcp_btn.clicked.connect(self.enable_dhcp)
+        actions_layout.addWidget(self.dhcp_btn)
+        
+        main_layout.addLayout(actions_layout)
+        
+        # Sección de DNS
+        dns_group = QGroupBox("Configuración DNS")
+        dns_layout = QGridLayout()
+        
+        dns_layout.addWidget(QLabel("DNS Primario:"), 0, 0)
+        self.dns1_input = QLineEdit()
+        self.dns1_input.setPlaceholderText("8.8.8.8")
+        dns_layout.addWidget(self.dns1_input, 0, 1)
+        
+        dns_layout.addWidget(QLabel("DNS Secundario:"), 1, 0)
+        self.dns2_input = QLineEdit()
+        self.dns2_input.setPlaceholderText("8.8.4.4")
+        dns_layout.addWidget(self.dns2_input, 1, 1)
+        
+        self.apply_dns_btn = QPushButton("Aplicar DNS")
+        self.apply_dns_btn.clicked.connect(self.apply_dns_config)
+        dns_layout.addWidget(self.apply_dns_btn, 2, 1)
+        
+        dns_group.setLayout(dns_layout)
+        main_layout.addWidget(dns_group)
+        
+        # Espaciador al final
+        main_layout.addStretch()
+    
+    def init_timers(self):
+        """Inicializar temporizadores"""
+        # Timer para actualizar lista de interfaces
+        self.refresh_timer = QTimer(self)
+        self.refresh_timer.timeout.connect(self.refresh_interfaces)
+        self.refresh_timer.start(5000)  # Actualizar cada 5 segundos
+    
+    def refresh_interfaces(self):
+        """Actualizar la lista de interfaces"""
+        if self.network_tools:
+            current = self.interfaces_combo.currentText()
+            interfaces = self.network_tools.get_active_interfaces()
+            self.interfaces_combo.clear()
+            self.interfaces_combo.addItems(interfaces)
+            if current in interfaces:
+                self.interfaces_combo.setCurrentText(current)
+    
+    def apply_ip_config(self):
+        """Aplicar configuración IP"""
+        try:
+            interface = self.interfaces_combo.currentText()
+            ip = self.ip_input.text()
+            mask = self.mask_input.text()
+            gateway = self.gateway_input.text()
+            
+            if not all([interface, ip]):
+                raise ValueError("La interfaz y la dirección IP son obligatorias")
+            
+            self.network_tools.change_ip(interface, ip, mask, gateway)
+            if self.logger:
+                self.logger.log_success(f"Configuración IP aplicada en {interface}")
+                
+        except Exception as e:
+            if self.logger:
+                self.logger.log_error(f"Error al aplicar configuración IP: {str(e)}")
+    
+    def enable_dhcp(self):
+        """Activar DHCP en la interfaz seleccionada"""
+        try:
+            interface = self.interfaces_combo.currentText()
+            if not interface:
+                raise ValueError("Debe seleccionar una interfaz")
+            
+            self.network_tools.restore_dhcp(interface)
+            if self.logger:
+                self.logger.log_success(f"DHCP activado en {interface}")
+                
+        except Exception as e:
+            if self.logger:
+                self.logger.log_error(f"Error al activar DHCP: {str(e)}")
+    
+    def apply_dns_config(self):
+        """Aplicar configuración DNS"""
+        try:
+            interface = self.interfaces_combo.currentText()
+            dns1 = self.dns1_input.text()
+            dns2 = self.dns2_input.text()
+            
+            if not all([interface, dns1]):
+                raise ValueError("La interfaz y el DNS primario son obligatorios")
+            
+            self.network_tools.set_dns(interface, dns1, dns2 if dns2 else None)
+            if self.logger:
+                self.logger.log_success(f"Configuración DNS aplicada en {interface}")
+                
+        except Exception as e:
+            if self.logger:
+                self.logger.log_error(f"Error al aplicar configuración DNS: {str(e)}")
