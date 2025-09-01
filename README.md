@@ -1,200 +1,101 @@
-# GIP Pro versión 1.0
+# GIP Pro V1.0
 
-![GIP Pro](https://img.shields.io/badge/version-1.0-blue.svg)
-![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)
-![License](https://img.shields.io/badge/license-Apache%202.0-green.svg)
+Gestor IP Pro desarrollado con el apoyo de IA, diseñado para administrar, configurar y diagnosticar conexiones de red de forma intuitiva y profesional.  
+Compatible con Windows 11/10 y distribuciones Linux.
 
-**GIP Pro** es una aplicación de escritorio multiplataforma para la configuración avanzada de redes en sistemas Windows, Linux y macOS. Permite gestionar de manera gráfica y sencilla la configuración de interfaces de red, servidores DNS y configuraciones de proxy.
+---
 
-## 🚀 Características
+## Características principales
 
-### Configuración de Red
-- **Gestión de Interfaces**: Soporte para Wi-Fi, Ethernet y otras interfaces de red
-- **Configuración IP**: Asignación automática (DHCP) o manual de direcciones IP
-- **Máscara de Subred**: Configuración personalizada de máscaras de red
-- **Gateway**: Configuración de puerta de enlace predeterminada
-- **DNS Personalizado**: Configuración de servidores DNS primario y secundario
+- Configuración de Red:
+  - Selección de interfaz (Wi-Fi / Ethernet).
+  - Asignación manual de IP, máscara de subred y gateway.
+  - Opción para aplicar o restablecer la red.
 
-### Proveedores DNS Preconfigurados
-- **Google DNS** (8.8.8.8 / 8.8.4.4)
-- **Cloudflare DNS** (1.1.1.1 / 1.0.0.1)
-- **OpenDNS** (208.67.222.222 / 208.67.220.220)
+- Configuración DNS:
+  - Definición de DNS primario y secundario.
+  - Soporte para Google DNS, Cloudflare DNS y OpenDNS.
+  - Aplicación inmediata de la configuración.
 
-### Configuración de Proxy
-- **Habilitar/Deshabilitar Proxy**: Control completo del proxy del sistema
-- **Servidor Proxy**: Configuración de servidor personalizado
-- **Puerto**: Especificación de puerto personalizado
-- **Probar Proxy**: Validación de configuración de proxy
+- Configuración de Proxy:
+  - Habilitar / deshabilitar proxy.
+  - Definir servidor y puerto de proxy.
+  - Prueba de conectividad del proxy.
 
-### Herramientas de Red
-- **Aplicar Configuración**: Aplicación inmediata de cambios
-- **DHCP**: Obtención automática de configuración de red
-- **Guardar Perfil**: Persistencia de configuraciones
-- **Diagnósticos**: Herramientas para probar conectividad
+- Estado y Resultados:
+  - Detección automática del sistema operativo.
+  - Visualización de la IP pública.
+  - Reporte de estado de red y mensajes de validación.
 
-## 📋 Requisitos del Sistema
+- Extras:
+  - Modo oscuro.
+  - Guardar y cargar configuraciones personalizadas.
+  - Botón de actualización rápida.
 
-- **Windows**: Windows 10/11 o superior
-- **Linux**: Ubuntu 18.04+, Debian 10+, CentOS 7+, Arch Linux
-- **macOS**: macOS 10.14 (Mojave) o superior
-- **Permisos**: Administrador/Root/Sudo (requerido para cambios de red)
-- **Memoria RAM**: Mínimo 2GB
-- **Espacio en Disco**: 50MB libres
+---
 
-## 🛠️ Instalación
+## Vista de la interfaz
 
-### Windows
-1. Descarga el Instalador `.exe` desde [OneDrive](https://drive.google.com/file/d/1CS0Gsu8lHEcJ6JwHQsaSe_6pCPmVGJXF/view?usp=drive_link)
-2. Ejecuta el instalador
-3. Sigue las instrucciones del asistente de instalación
-4. Despues de instalado, puedes empezar a usarlo. (El programa se ejecutará automaticamente como admin)
-
-### Linux
-
-#### Ubuntu/Debian
-```bash
-# Descarga el paquete .deb
-wget https://github.com/fonroot01/GIP-Pro-V1.0/releases/latest/download/gip-pro.deb
-
-# Instala el paquete
-sudo dpkg -i gip-pro.deb
-
-# Instala dependencias si es necesario
-sudo apt-get install -f
-```
-
-#### Instalación desde cualquier distro
-```bash
-git clone https://github.com/fonroot01/GIP-Pro-V1.0.git
-cd GIP-Pro-V1.0
-chmod +x install.sh
-sudo ./install.sh
-```
-
-### macOS
-
-#### Usando Homebrew (Recomendado)
-```bash
-# Añade el tap personalizado
-brew tap fonroot01/gip-pro
-
-# Instala GIP Pro
-brew install gip-pro
-```
-
-#### Instalación desde código fuente
-```bash
-git clone https://github.com/fonroot01/GIP-Pro-V1.0.git
-cd GIP-Pro-V1.0
-chmod +x install-macos.sh
-sudo ./install-macos.sh
-```
-### Interfaz Gráfica 
 ![Interfaz de GIP Pro](https://github.com/user-attachments/assets/788f39b0-348a-499e-b656-b7a434fde962)
 
-## 💻 Uso
+---
 
-### Configuración Básica de Red
+## Requisitos
 
-1. **Seleccionar Interfaz**: Elige la interfaz de red (Wi-Fi, Ethernet, etc.)
-2. **Configurar IP**: 
-   - Automático: Marca "Auto" para DHCP
-   - Manual: Ingresa la dirección IP deseada
-3. **Establecer Máscara**: Define la máscara de subred (ej: 255.255.255.0)
-4. **Configurar Gateway**: Especifica la puerta de enlace
-5. **Aplicar Cambios**: Haz clic en "Aplicar IP"
+- Windows: 10 / 11  
+- Linux: Cualquier distribución moderna con Python 3.8+  
+- Dependencias:  
+  - Python 3.8 o superior  
+  - Bibliotecas gráficas (Tkinter / PyQt5 según versión)  
 
-> **Nota**: En Linux y macOS es necesario ejecutar la aplicación con permisos de administrador (`sudo`) para realizar cambios en la configuración de red.
+---
 
-### Configuración de DNS
+## Instalación
 
-1. Selecciona un proveedor preconfigurado (Google, Cloudflare, OpenDNS)
-2. O configura servidores DNS personalizados:
-   - **DNS Primario**: Servidor DNS principal
-   - **DNS Secundario**: Servidor DNS de respaldo
+Clona este repositorio en tu equipo:
 
-### Configuración de Proxy
-
-1. Marca "Habilitar Proxy"
-2. Ingresa la dirección del **Servidor**
-3. Especifica el **Puerto**
-4. Haz clic en "Probar Proxy" para verificar la conexión
-
-## 🔧 Funcionalidades Avanzadas
-
-### Perfiles de Red
-- Guarda múltiples configuraciones de red
-- Cambio rápido entre perfiles
-- Exportación e importación de configuraciones
-
-### Diagnósticos
-- **Probar Conexión**: Verifica la conectividad a Internet
-- **Información de Red**: Muestra detalles de la configuración actual
-- **Estado del Proxy**: Monitorea el estado de la conexión proxy
-
-## 🐛 Solución de Problemas
-
-### Problemas Comunes
-
-**La aplicación no inicia**
-- **Windows**: Ejecutar como administrador
-- **Linux/macOS**: Ejecutar con `sudo` o verificar permisos
-- Verificar compatibilidad del sistema
-
-**No se pueden aplicar cambios de red**
-- Confirmar permisos de administrador/sudo
-- **Windows**: Verificar configuración de firewall
-- **Linux**: Verificar que NetworkManager esté activo
-- **macOS**: Verificar permisos de red en Preferencias del Sistema
-
-**Dependencias faltantes (Linux)**
 ```bash
-# Ubuntu/Debian
-sudo apt-get install network-manager python3-gi gir1.2-gtk-3.0
-
-# CentOS/RHEL/Fedora
-sudo dnf install NetworkManager python3-gobject gtk3-devel
-
-# Arch Linux
-sudo pacman -S networkmanager python-gobject gtk3
+git clone https://github.com/fonroot01/GIP-Pro-V1.0.git
+cd GIP-Pro-V1.0
 ```
 
-## 🤝 Contribuciones
-
-Las contribuciones son bienvenidas. Por favor:
-
-1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
-
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia Apache 2.0. Ver el archivo [LICENSE](LICENSE) para más detalles.
-
-## 👨‍💻 Autor
-
-**Alfonso Mosquera**
-- GitHub: [@fonroot01](https://github.com/fonroot01)
-- LinkedIn: [Alfonso Ángel Mosquera A.](https://www.linkedin.com/in/alfonso-%C3%A1ngel-mosquera-a-4a919b341/)
-- Email: alfomosque22@gmail.com
-- Donaciones: [PayPal](https://www.paypal.com/paypalme/alfomosque22)
-
-## 🔗 Enlaces del Repositorio
+Instala las dependencias necesarias:
 
 ```bash
-# HTTPS
-git clone https://github.com/fonroot01/GIP-Pro-V1.0.git
+pip install -r requirements.txt
+```
 
-# SSH
-git clone git@github.com:fonroot01/GIP-Pro-V1.0.git
+Ejecuta el programa:
 
-# GitHub CLI
-gh repo clone fonroot01/GIP-Pro-V1.0
+```bash
+python main.py
 ```
 
 ---
-<div align="center">
-  <p>⭐ Si este proyecto te fue útil, no olvides darle una estrella. ¡Saludos desde Colombia! 🇨🇴</p>
-</div>
+
+## Compatibilidad
+
+- Windows (10/11)  
+- Linux (probado en Ubuntu y derivados)  
+
+---
+
+## Licencia
+
+Este proyecto está bajo la licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
+
+---
+
+## Contribuciones
+
+Las contribuciones son bienvenidas.  
+Puedes proponer mejoras abriendo un issue o enviando un pull request en GitHub.
+
+---
+
+## Autor
+
+Desarrollado por Alfonso Mosquera con el apoyo de IA.  
+Repositorio oficial: https://github.com/fonroot01/GIP-Pro-V1.0.git
+
+---
