@@ -82,14 +82,14 @@ python main.py
 
 ## Licencia
 
-Este proyecto está bajo la licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
+Este proyecto está bajo Apache-2.0 license. Consulta el archivo [LICENSE](LICENSE) para más detalles.
 
 ---
 
 ## Contribuciones
 
 Las contribuciones son bienvenidas.  
-Puedes proponer mejoras abriendo un issue o enviando un pull request en GitHub.
+Puedes proponer mejoras abriendo un issue o enviando un pull request.
 
 ---
 
